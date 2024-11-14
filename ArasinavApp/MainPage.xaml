@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArasinavApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="30"
+            >
+            <Image
+                Source="profil.jpg"
+                Aspect="AspectFit"
+                HeightRequest="250"
+                WidthRequest="250"
+                />
+
+            <Label
+                Text="Burak ERKEN"
+                Style="{StaticResource Headline}"
+                FontSize="40"
+                />
+
+            <Label
+                Text="Hoşgeldiniz &#10;Bu uygulama ansızın ihtiyacınız olan şeyleri ayağınıza getiren  &#10;ve &#10; Sizi internette aramaktan kurtaran bir rehber"
+                Style="{StaticResource SubHeadline}"
+                Padding="20"
+                FontSize="15"
+                />
+            <Label
+                Text="Bartın Üniversitesi &#10;Bilgisayar Mühendisliği"
+                FontSize="25"
+                />
+            <Label
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="Large"
+                Text="ÖDEV 1"
+                Margin="20"
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

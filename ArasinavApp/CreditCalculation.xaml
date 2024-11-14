@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ArasinavApp.CreditCalculation"
+             Title="CreditCalculation">
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <Button TextColor="Black"
+                BackgroundColor="White" 
+                BorderWidth="3"
+                BorderColor="DimGray"
+                Padding="10"
+                MaximumWidthRequest="300"
+                CornerRadius="20"
+                Text="Kredi Türü Seçiniz" 
+                FontSize="25"
+                Clicked="OnSelectCreditTypeClicked"/>
+            <Label 
+            x:Name="SelectedCreditLabel" 
+            FontSize="Large" 
+            Padding="30"
+            HorizontalOptions="Center" />
+
+            <StackLayout Spacing="20" Padding="0,20,0,40">
+                <Label Text="Kredi Miktarı (TL)"
+                   FontSize="Medium"
+                   />
+                <Entry x:Name="KrediMiktariEntry"
+                   Keyboard="Numeric"
+                   Placeholder="Kredi Miktarını girin" />
+
+                <Label Text="Faiz Oranı (%)"
+                   FontSize="Medium"
+                   />
+                <Entry x:Name="FaizOraniEntry"
+                   Keyboard="Numeric"
+                   Placeholder="Faiz Oranını girin" />
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Vade (Ay)"
+                       FontSize="Medium"
+                       />
+                    <Picker x:Name="VadePicker"
+                        WidthRequest="150"
+                        SelectedIndexChanged="OnVadePickerSelected">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:Int32}">
+                                <x:Int32>1</x:Int32>
+                                <x:Int32>2</x:Int32>
+                                <x:Int32>3</x:Int32>
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>5</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>7</x:Int32>
+                                <x:Int32>8</x:Int32>
+                                <x:Int32>9</x:Int32>
+                                <x:Int32>10</x:Int32>
+                                <x:Int32>11</x:Int32>
+                                <x:Int32>12</x:Int32>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                </HorizontalStackLayout>
+                <Entry x:Name="VadeEntry"
+                       Keyboard="Numeric"
+                       Placeholder="Vade girin" />
+
+                <Slider x:Name="ValueChanger" ValueChanged="OnSliderValueChanged" Minimum="0" Maximum="50" />
+            </StackLayout>
+            <Grid RowSpacing="20" ColumnSpacing="5" Padding="0,0,0,40" ColumnDefinitions="Auto, *,Auto" RowDefinitions="Auto, Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Aylık Ödeme: " FontSize="Small"/>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="AylıkOdemeLabel" Text="" FontSize="Small"
+                   HorizontalOptions="End" HorizontalTextAlignment="End" />
+                <Label Text="TL" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" FontSize="Small"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Toplam Ödeme: " FontSize="Small"/>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="ToplamOdemeLabel" Text="" FontSize="Small"
+                   HorizontalOptions="End" HorizontalTextAlignment="End" />
+                <Label Text="TL" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" FontSize="Small"/>
+
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Toplam Faiz: " FontSize="Small"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="ToplamFaizLabel" Text="" FontSize="Small"
+                   HorizontalOptions="End" HorizontalTextAlignment="End" />
+                <Label Text="%" Grid.Row="2" Grid.Column="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" FontSize="Small"/>
+            </Grid>
+
+            <Button Text="Hesapla"
+                FontSize="Large"
+                BackgroundColor="White"
+                Clicked="Calculate"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
